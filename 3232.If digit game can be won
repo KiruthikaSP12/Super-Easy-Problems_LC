@@ -1,0 +1,11 @@
+bool canAliceWin(int* nums, int numsSize) 
+{
+   int single = 0,dou = 0;
+    for(int i=0;i<numsSize;i++)
+    {
+        if(nums[i]<10) single+=nums[i];
+        else dou += nums[i];
+    }
+    if(single==dou) return false;
+    return true; 
+}
