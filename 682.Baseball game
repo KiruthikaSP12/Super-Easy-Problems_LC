@@ -1,0 +1,27 @@
+int calPoints(char** operations, int operationsSize) 
+{
+   int count = 0;
+    int sum[operationsSize];
+    int index = 0;
+
+    for (int i = 0; i < operationsSize; i++) {
+        if (strcmp(operations[i], "D") == 0) {
+            sum[index] = sum[index - 1] * 2;
+            index++;
+        } else if (strcmp(operations[i], "C") == 0) {
+            index--;
+        } else if (strcmp(operations[i], "+") == 0) {
+            sum[index] = sum[index - 1] + sum[index - 2];
+            index++;
+        } else {
+            sum[index] = atoi(operations[i]);
+            index++;
+        }
+    }
+
+    for (int i = 0; i < index; i++) {
+        count += sum[i];
+    }
+
+    return count; 
+}
